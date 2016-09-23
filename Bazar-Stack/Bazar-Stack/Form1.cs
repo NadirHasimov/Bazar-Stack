@@ -20,6 +20,7 @@ namespace Bazar_Stack
         }
         public void AddToGridView()
         {
+            dataGridView1.DataBindings.Clear();
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
@@ -80,7 +81,6 @@ namespace Bazar_Stack
                     else MessageBox.Show("Məhsul uğurla yükləndi !");
                 }
             }
-            dataGridView1.DataBindings.Clear();
             AddToGridView();
             dataGridView1.Refresh();
         }
@@ -104,9 +104,29 @@ namespace Bazar_Stack
                     }
                     else MessageBox.Show("Seçdiyiniz məhsulun parametrləri yeniləndi!");
                 }
-                dataGridView1.DataBindings.Clear();
                 AddToGridView();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con =new SqlConnection(constr))
+            {
+                con.Open();
+                using(SqlCommand cmd=new SqlCommand("uspSaleProduct", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
+                    cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox6.Text);
+                    var affectedRows = cmd.ExecuteNonQuery();
+                    if (affectedRows < 1)
+                    {
+                        MessageBox.Show("Əməliyyat  yerinə yetirilə bilmədi !");
+                    }
+                    else MessageBox.Show("Əməliyyat uğurla yerinə yetirldi !");
+                }
+            }
+            AddToGridView();
         }
     }
 }
