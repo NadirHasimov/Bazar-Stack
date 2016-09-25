@@ -40,25 +40,33 @@ namespace Bazar_Stack
         private void Form1_Load(object sender, EventArgs e)
         {
             AddToGridView();
-
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dataGridView1.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex;
-            rowIndex = e.RowIndex;
-            textBox1.DataBindings.Clear();
-            textBox1.Text = "" + dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
-            textBox2.DataBindings.Clear();
-            textBox2.Text = "" + dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
-            textBox3.DataBindings.Clear();
-            textBox3.Text = "" + dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
-            textBox4.DataBindings.Clear();
-            textBox4.Text = "" + dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
-            textBox5.DataBindings.Clear();
-            textBox5.Text = "" + dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-        }
+            if ((e.ColumnIndex == 0 && e.RowIndex == -1) || (e.ColumnIndex == 1 && e.RowIndex == -1) || (e.ColumnIndex == 2 && e.RowIndex == -1) || (e.ColumnIndex == 3 && e.RowIndex == -1) || (e.ColumnIndex == 4 && e.RowIndex == -1) || (e.ColumnIndex == 5 && e.RowIndex == -1) || (e.ColumnIndex == 6 && e.RowIndex == -1))
+            {
 
+            }
+            else
+            {
+
+                int rowIndex;
+                rowIndex = e.RowIndex;
+                textBox1.DataBindings.Clear();
+                textBox1.Text = "" + dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+                textBox2.DataBindings.Clear();
+                textBox2.Text = "" + dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
+                textBox3.DataBindings.Clear();
+                textBox3.Text = "" + dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+                textBox4.DataBindings.Clear();
+                textBox4.Text = "" + dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
+                textBox5.DataBindings.Clear();
+                textBox5.Text = "" + dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            }
+        }
         private void AddProduct_Click(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(constr))
@@ -108,12 +116,12 @@ namespace Bazar_Stack
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void SaleBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con =new SqlConnection(constr))
+            using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
-                using(SqlCommand cmd=new SqlCommand("uspSaleProduct", con))
+                using (SqlCommand cmd = new SqlCommand("uspSaleProduct", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
@@ -127,6 +135,63 @@ namespace Bazar_Stack
                 }
             }
             AddToGridView();
+
+        }
+
+        private void DeletButton_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("uspDeleteProducts", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
+                    var affectedRows = cmd.ExecuteNonQuery();
+                    if (affectedRows < 1)
+                    {
+                        MessageBox.Show("Əməliyyat yerinə yetirilə bilmədi !");
+                    }
+                    else MessageBox.Show("Əməliyyat uğurla yerinə yetirildi !");
+                }
+                AddToGridView();
+            }
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if ((e.ColumnIndex == 0 && e.RowIndex == -1) || (e.ColumnIndex == 1 && e.RowIndex == -1) || (e.ColumnIndex == 2 && e.RowIndex == -1) || (e.ColumnIndex == 3 && e.RowIndex == -1) || (e.ColumnIndex == 4 && e.RowIndex == -1) || (e.ColumnIndex == 5 && e.RowIndex == -1) || (e.ColumnIndex == 6 && e.RowIndex == -1))
+            {
+
+            }
+            else
+            {
+
+                int rowIndex;
+                rowIndex = e.RowIndex;
+                textBox1.DataBindings.Clear();
+                textBox1.Text = "" + dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+                textBox2.DataBindings.Clear();
+                textBox2.Text = "" + dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
+                textBox3.DataBindings.Clear();
+                textBox3.Text = "" + dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+                textBox4.DataBindings.Clear();
+                textBox4.Text = "" + dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
+                textBox5.DataBindings.Clear();
+                textBox5.Text = "" + dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form frm = new TopSalledProducts();
+            frm.Visible = true;
         }
     }
 }
