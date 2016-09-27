@@ -14,10 +14,18 @@ namespace Bazar_Stack
     public partial class TopSalledProducts : Form
     {
         const string constr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BazarStock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private Form1 form1;
+
         public TopSalledProducts()
         {
             InitializeComponent();
         }
+
+        public TopSalledProducts(Form1 form1)
+        {
+            this.form1 = form1;
+        }
+
         private void TopSalledProducts_Load(object sender, EventArgs e)
         {
             AddDataGrid();

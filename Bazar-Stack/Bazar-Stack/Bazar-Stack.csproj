@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Benefit_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Benefit_Form.Designer.cs">
+      <DependentUpon>Benefit_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="TopSalledProducts.Designer.cs">
       <DependentUpon>TopSalledProducts.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Benefit_Form.resx">
+      <DependentUpon>Benefit_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

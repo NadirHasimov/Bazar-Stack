@@ -46,7 +46,10 @@ namespace Bazar_Stack
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((e.ColumnIndex == 0 && e.RowIndex == -1) || (e.ColumnIndex == 1 && e.RowIndex == -1) || (e.ColumnIndex == 2 && e.RowIndex == -1) || (e.ColumnIndex == 3 && e.RowIndex == -1) || (e.ColumnIndex == 4 && e.RowIndex == -1) || (e.ColumnIndex == 5 && e.RowIndex == -1) || (e.ColumnIndex == 6 && e.RowIndex == -1))
+            int a = 0;
+            a = checkList(e.ColumnIndex);
+
+            if (a != 0 && e.RowIndex == -1)
             {
 
             }
@@ -69,92 +72,122 @@ namespace Bazar_Stack
         }
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                con.Open();
-                DataSet ds = new DataSet();
-                ds.Clear();
-                using (SqlCommand cmd = new SqlCommand("uspInsertProduct", con))
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar).Value = textBox1.Text.ToString();
-                    cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = Convert.ToDecimal(textBox2.Text);
-                    cmd.Parameters.Add("@PriceOfProduct ", SqlDbType.Int).Value = int.Parse(textBox3.Text);
-                    cmd.Parameters.Add("@Count", SqlDbType.Int).Value = Convert.ToInt32(textBox4.Text);
-                    var affectedRows = cmd.ExecuteNonQuery();
-                    if (affectedRows < 1)
+                    con.Open();
+                    DataSet ds = new DataSet();
+                    ds.Clear();
+                    using (SqlCommand cmd = new SqlCommand("uspInsertProduct", con))
                     {
-                        MessageBox.Show("Əməliyyat alınmadı! Yenidən cəhd edin!");
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar).Value = textBox1.Text.ToString();
+                        cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = Convert.ToDecimal(textBox2.Text);
+                        cmd.Parameters.Add("@PriceOfProduct ", SqlDbType.Int).Value = int.Parse(textBox3.Text);
+                        cmd.Parameters.Add("@Count", SqlDbType.Int).Value = Convert.ToInt32(textBox4.Text);
+                        cmd.Parameters.Add("@Date", SqlDbType.Date).Value = DateTime.Now;
+                        var affectedRows = cmd.ExecuteNonQuery();
+                        if (affectedRows < 1)
+                        {
+                            MessageBox.Show("Əməliyyat alınmadı! Yenidən cəhd edin!");
+                        }
+                        else MessageBox.Show("Məhsul uğurla yükləndi !");
                     }
-                    else MessageBox.Show("Məhsul uğurla yükləndi !");
-                }
-            }
-            AddToGridView();
-            dataGridView1.Refresh();
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("uspUpdateProducTable", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Convert.ToInt32(textBox5.Text);
-                    cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = textBox1.Text;
-                    cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = decimal.Parse(textBox2.Text);
-                    cmd.Parameters.Add("@PriceOfProduct", SqlDbType.Decimal).Value = int.Parse(textBox3.Text);
-                    cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox4.Text);
-                    var affectedRows = cmd.ExecuteNonQuery();
-                    if (affectedRows < 1)
-                    {
-                        MessageBox.Show("Əməliyyat uğurla yerinə yetirilmədi!");
-                    }
-                    else MessageBox.Show("Seçdiyiniz məhsulun parametrləri yeniləndi!");
                 }
                 AddToGridView();
+                dataGridView1.Refresh();
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Zəhmət olmasa əlavə edəcəyiniz məhsulun parametrlərini doldurun !");
+            }
+        }
+        private void Update_Products_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("uspUpdateProducTable", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Convert.ToInt32(textBox5.Text);
+                        cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = textBox1.Text;
+                        cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = decimal.Parse(textBox2.Text);
+                        cmd.Parameters.Add("@PriceOfProduct", SqlDbType.Decimal).Value = int.Parse(textBox3.Text);
+                        cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox4.Text);
+                        var affectedRows = cmd.ExecuteNonQuery();
+                        if (affectedRows < 1)
+                        {
+                            MessageBox.Show("Əməliyyat uğurla yerinə yetirilmədi!");
+                        }
+                        else MessageBox.Show("Seçdiyiniz məhsulun parametrləri yeniləndi!");
+                    }
+                    AddToGridView();
+                }
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Dəyişdirəcəyiniz məhsulu seçin !");
             }
         }
 
         private void SaleBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("uspSaleProduct", con))
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
-                    cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox6.Text);
-                    var affectedRows = cmd.ExecuteNonQuery();
-                    if (affectedRows < 1)
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("uspSaleProduct", con))
                     {
-                        MessageBox.Show("Əməliyyat  yerinə yetirilə bilmədi !");
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
+                        cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox6.Text);
+                        var affectedRows = cmd.ExecuteNonQuery();
+                        if (affectedRows < 1)
+                        {
+                            MessageBox.Show("Əməliyyat  yerinə yetirilə bilmədi !");
+                        }
+                        else MessageBox.Show("Əməliyyat uğurla yerinə yetirldi !");
                     }
-                    else MessageBox.Show("Əməliyyat uğurla yerinə yetirldi !");
                 }
-            }
-            AddToGridView();
+                AddToGridView();
 
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Satacağınız məhsulu seçin!");
+            }
         }
 
         private void DeletButton_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("uspDeleteProducts", con))
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
-                    var affectedRows = cmd.ExecuteNonQuery();
-                    if (affectedRows < 1)
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("uspDeleteProducts", con))
                     {
-                        MessageBox.Show("Əməliyyat yerinə yetirilə bilmədi !");
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
+                        var affectedRows = cmd.ExecuteNonQuery();
+                        if (affectedRows < 1)
+                        {
+                            MessageBox.Show("Əməliyyat yerinə yetirilə bilmədi !");
+                        }
+                        else MessageBox.Show("Əməliyyat uğurla yerinə yetirildi !");
                     }
-                    else MessageBox.Show("Əməliyyat uğurla yerinə yetirildi !");
+                    AddToGridView();
                 }
-                AddToGridView();
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("Siləcəyiniz məhsulu seçin !");
             }
         }
 
@@ -165,8 +198,9 @@ namespace Bazar_Stack
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            if ((e.ColumnIndex == 0 && e.RowIndex == -1) || (e.ColumnIndex == 1 && e.RowIndex == -1) || (e.ColumnIndex == 2 && e.RowIndex == -1) || (e.ColumnIndex == 3 && e.RowIndex == -1) || (e.ColumnIndex == 4 && e.RowIndex == -1) || (e.ColumnIndex == 5 && e.RowIndex == -1) || (e.ColumnIndex == 6 && e.RowIndex == -1))
+            int a = 0;
+            a = checkList(e.ColumnIndex);
+            if (a != 0 && e.RowIndex == -1)
             {
 
             }
@@ -185,6 +219,15 @@ namespace Bazar_Stack
                 textBox4.Text = "" + dataGridView1.Rows[rowIndex].Cells[4].Value.ToString();
                 textBox5.DataBindings.Clear();
                 textBox5.Text = "" + dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
+                try
+                {
+
+                    textBox7.Text = "" + (decimal.Parse(textBox3.Text) - decimal.Parse(textBox2.Text)) * decimal.Parse(textBox4.Text);
+                }
+                catch (System.FormatException)
+                {
+
+                }
             }
         }
 
@@ -193,5 +236,17 @@ namespace Bazar_Stack
             Form frm = new TopSalledProducts();
             frm.Visible = true;
         }
+        public int checkList(int number)
+        {
+            listOfNumbers.Add(1);
+            listOfNumbers.Add(2);
+            listOfNumbers.Add(3);
+            listOfNumbers.Add(4);
+            listOfNumbers.Add(5);
+            listOfNumbers.Add(6);
+            return listOfNumbers.Find(x => x == number);
+        }
+        public List<int> listOfNumbers = new List<int>();
     }
 }
+
