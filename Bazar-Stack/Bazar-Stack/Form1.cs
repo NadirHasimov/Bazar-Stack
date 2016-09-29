@@ -77,23 +77,37 @@ namespace Bazar_Stack
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     con.Open();
+                    using (SqlCommand cmd1 = new SqlCommand("uspCheckProductName", con))
+                    {
+                        cmd1.CommandType = CommandType.StoredProcedure;
+                        cmd1.Parameters.Add("@Name", SqlDbType.NVarChar).Value = textBox1.Text;
+                        int check = (int)(cmd1.ExecuteScalar() ?? 0);
+                        if (check != 0)
+                        {
+                            MessageBox.Show("Bu məhsul artıq yüklənib !");
+                        }
+                        else
+                        {
+                            using (SqlCommand cmd = new SqlCommand("uspInsertProduct", con))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar).Value = textBox1.Text.ToString();
+                                cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = Convert.ToDecimal(textBox2.Text);
+                                cmd.Parameters.Add("@PriceOfProduct ", SqlDbType.Int).Value = int.Parse(textBox3.Text);
+                                cmd.Parameters.Add("@Count", SqlDbType.Int).Value = Convert.ToInt32(textBox4.Text);
+                                cmd.Parameters.Add("@Date", SqlDbType.Date).Value = DateTime.Now;
+                                var affectedRows = cmd.ExecuteNonQuery();
+                                if (affectedRows < 1)
+                                {
+                                    MessageBox.Show("Əməliyyat alınmadı! Yenidən cəhd edin!");
+                                }
+                                else MessageBox.Show("Məhsul uğurla yükləndi !");
+                            }
+                        }
+                    }
                     DataSet ds = new DataSet();
                     ds.Clear();
-                    using (SqlCommand cmd = new SqlCommand("uspInsertProduct", con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar).Value = textBox1.Text.ToString();
-                        cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = Convert.ToDecimal(textBox2.Text);
-                        cmd.Parameters.Add("@PriceOfProduct ", SqlDbType.Int).Value = int.Parse(textBox3.Text);
-                        cmd.Parameters.Add("@Count", SqlDbType.Int).Value = Convert.ToInt32(textBox4.Text);
-                        cmd.Parameters.Add("@Date", SqlDbType.Date).Value = DateTime.Now;
-                        var affectedRows = cmd.ExecuteNonQuery();
-                        if (affectedRows < 1)
-                        {
-                            MessageBox.Show("Əməliyyat alınmadı! Yenidən cəhd edin!");
-                        }
-                        else MessageBox.Show("Məhsul uğurla yükləndi !");
-                    }
+
                 }
                 AddToGridView();
                 dataGridView1.Refresh();
@@ -147,16 +161,23 @@ namespace Bazar_Stack
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
                         cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox6.Text);
-                        var affectedRows = cmd.ExecuteNonQuery();
-                        if (affectedRows < 1)
+                        try
                         {
-                            MessageBox.Show("Əməliyyat  yerinə yetirilə bilmədi !");
+                            var affectedRows = cmd.ExecuteNonQuery();
+                            if (affectedRows < 1)
+                            {
+                                MessageBox.Show("Əməliyyat  yerinə yetirilə bilmədi !");
+                            }
+                            else MessageBox.Show("Əməliyyat uğurla yerinə yetirldi !");
+
                         }
-                        else MessageBox.Show("Əməliyyat uğurla yerinə yetirldi !");
+                        catch (System.Data.SqlClient.SqlException)
+                        {
+                            MessageBox.Show("Satacağınız məhsulun sayı bazadakından artıqdır !");
+                        }
                     }
                 }
                 AddToGridView();
-
             }
             catch (System.FormatException)
             {
@@ -190,16 +211,15 @@ namespace Bazar_Stack
                 MessageBox.Show("Siləcəyiniz məhsulu seçin !");
             }
         }
-
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int a = 0;
             a = checkList(e.ColumnIndex);
+            if (a == 0) { a = 11; }
             if (a != 0 && e.RowIndex == -1)
             {
 
@@ -238,6 +258,8 @@ namespace Bazar_Stack
         }
         public int checkList(int number)
         {
+            listOfNumbers.Add(-1);
+            listOfNumbers.Add(0);
             listOfNumbers.Add(1);
             listOfNumbers.Add(2);
             listOfNumbers.Add(3);

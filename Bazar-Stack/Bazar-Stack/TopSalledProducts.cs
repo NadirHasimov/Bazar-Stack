@@ -28,6 +28,7 @@ namespace Bazar_Stack
 
         private void TopSalledProducts_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataBindings.Clear();
             AddDataGrid();
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
