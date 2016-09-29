@@ -178,6 +178,7 @@ namespace Bazar_Stack
                     }
                 }
                 AddToGridView();
+                
             }
             catch (System.FormatException)
             {
@@ -271,4 +272,3 @@ namespace Bazar_Stack
         public List<int> listOfNumbers = new List<int>();
     }
 }
-

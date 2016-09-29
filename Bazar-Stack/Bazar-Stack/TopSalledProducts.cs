@@ -29,10 +29,10 @@ namespace Bazar_Stack
         private void TopSalledProducts_Load(object sender, EventArgs e)
         {
             dataGridView1.DataBindings.Clear();
-            AddDataGrid();
+            AddDataGrid1();
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
-        public void AddDataGrid()
+        public void AddDataGrid1()
         {
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -44,6 +44,11 @@ namespace Bazar_Stack
                 adapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddDataGrid1();
         }
     }
 }
