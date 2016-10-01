@@ -37,14 +37,22 @@ namespace Bazar_Stack
                     {
                         listOfBenefit.Add(new Benefit { Price = reader.GetDecimal(0), PriceOfProduct = reader.GetDecimal(1), CountOfSold = reader.GetInt32(2) });
                     }
-                    decimal sum = 0;
-                    foreach (Benefit i in listOfBenefit)
+                    if (listOfBenefit.Count == 0)
                     {
-                        decimal benefit;
-                        benefit = (i.Price - i.PriceOfProduct) * i.CountOfSold;
-                        sum = benefit + sum;
+                        MessageBox.Show("Seçdiyiniz tarixdə məhsul əlavə olunmayıb !");
                     }
-                    MessageBox.Show("Ümumi qazancıvız " + sum + "-dır.");
+                    else
+                    {
+
+                        decimal sum = 0;
+                        foreach (Benefit i in listOfBenefit)
+                        {
+                            decimal benefit;
+                            benefit = (i.Price - i.PriceOfProduct) * i.CountOfSold;
+                            sum = benefit + sum;
+                        }
+                        MessageBox.Show("Seçdiyiniz tarixdə əlavə olunan mallardan qazancıvız " + sum + "-bu qədərdir.");
+                    }
                 }
             }
         }
