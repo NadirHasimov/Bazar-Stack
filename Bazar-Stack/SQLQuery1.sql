@@ -1,20 +1,17 @@
-﻿create procedure uspCheckProductName
-(	
-	@Name nvarchar(50)
+﻿create procedure uspGetBenefit
+as
+begin
+	Select Products.Price,Products.PriceOfPRoduct,Products.CountOfSoldProduct from Products
+end
+
+go
+create procedure uspGetBenefitInDate
+(
+	@date1 date , @date2 date
 )
 as
-begin 
-	select ID from Products where ProductName=@Name
+begin
+select Products.PriceOfPRoduct,Products.Price,Products.CountOfSoldProduct from Products where Tarix between @date1 and @date2
 end
-go
-alter procedure uspGetAllProducts
-as
-begin 
-	select ID,ProductName,Price,PriceOfPRoduct,CountOfProduct,Tarix from Products 
-end
-go
-alter procedure uspGetAllProducts
-as
-begin 
-	select ID as Nömrə,ProductName as Ad,Price as [Satış Qiyməti],PriceOfPRoduct as [Alış Qiyməti],CountOfProduct as [Depodakı Say],Tarix from Products 
-end
+select Exam.EmployeeID from Exam where EmployeeID between 1 and 5
+select Exam.EmployeeID from Exam

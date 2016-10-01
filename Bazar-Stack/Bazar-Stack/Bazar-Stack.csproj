@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BenefitInDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BenefitInDate.Designer.cs">
+      <DependentUpon>BenefitInDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Benefit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="TopSalledProducts.Designer.cs">
       <DependentUpon>TopSalledProducts.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BenefitInDate.resx">
+      <DependentUpon>BenefitInDate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Benefit_Form.resx">
       <DependentUpon>Benefit_Form.cs</DependentUpon>
     </EmbeddedResource>
