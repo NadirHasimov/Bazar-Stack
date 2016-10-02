@@ -98,7 +98,7 @@ namespace Bazar_Stack
                                 cmd.CommandType = CommandType.StoredProcedure;
                                 cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar).Value = textBox1.Text.ToString();
                                 cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = Convert.ToDecimal(textBox2.Text);
-                                cmd.Parameters.Add("@PriceOfProduct ", SqlDbType.Int).Value = int.Parse(textBox3.Text);
+                                cmd.Parameters.Add("@PriceOfProduct ", SqlDbType.Decimal).Value = decimal.Parse(textBox3.Text);
                                 cmd.Parameters.Add("@Count", SqlDbType.Int).Value = Convert.ToInt32(textBox8.Text);
                                 cmd.Parameters.Add("@Date", SqlDbType.Date).Value = DateTime.Now;
                                 try
@@ -112,7 +112,7 @@ namespace Bazar_Stack
                                 }
                                 catch (System.Data.SqlClient.SqlException)
                                 {
-                                    MessageBox.Show("Məhsulun sayı mənfi ola bilməz!");
+                                    MessageBox.Show("Məhsulun sayı mənfi və ya 0-dır!");
                                 }
                             }
                         }
