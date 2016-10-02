@@ -28,7 +28,7 @@ namespace Bazar_Stack
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@date1", SqlDbType.Date).Value = dateTimePicker1.Text;
-                    cmd.Parameters.Add("date2", SqlDbType.Date).Value = dateTimePicker2.Text;
+                    cmd.Parameters.Add("@date2", SqlDbType.Date).Value = dateTimePicker2.Text;
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -86,6 +86,45 @@ namespace Bazar_Stack
                         sum = benefit + sum;
                     }
                     MessageBox.Show("Ümumi qazancıvız " + sum + "-dır.");
+                }
+            }
+        }
+
+        private void Benefit_DueTo_SoldofDate(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("uspBenefitsDueToDay", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@date1", SqlDbType.Date).Value = dateTimePicker1.Text;
+                    cmd.Parameters.Add("@date2", SqlDbType.Date).Value = dateTimePicker2.Text;
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    List<Benefit> listOfBenefit = new List<Benefit>();
+                    while (reader.Read())
+                    {
+                        listOfBenefit.Add(new Benefit { Price = reader.GetDecimal(0), PriceOfProduct = reader.GetDecimal(1), CountOfSold = reader.GetInt32(2) });
+                    }
+                    if (listOfBenefit.Count == 0)
+                    {
+                        MessageBox.Show("Seçdiyiniz tarixdə məhsul satılmayıb olunmayıb !");
+                    }
+                    else
+                    {
+
+                        decimal sum = 0;
+                        foreach (Benefit i in listOfBenefit)
+                        {
+                            decimal benefit;
+                            benefit = (i.PriceOfProduct - i.Price) * i.CountOfSold;
+                            sum = benefit + sum;
+                        }
+                        MessageBox.Show("Seçdiyiniz tarixdə əlavə olunan mallardan qazancıvız " + sum + "-bu qədərdir.");
+
+                    }
                 }
             }
         }

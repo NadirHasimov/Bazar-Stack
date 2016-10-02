@@ -180,6 +180,9 @@ namespace Bazar_Stack
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(textBox5.Text);
                         cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox8.Text);
+                        cmd.Parameters.Add("@Date", SqlDbType.Date).Value = DateTime.Now;
+                        cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = decimal.Parse(textBox2.Text);
+                        cmd.Parameters.Add("PriceOfProduct", SqlDbType.Decimal).Value = decimal.Parse(textBox3.Text);
                         try
                         {
                             var affectedRows = cmd.ExecuteNonQuery();
