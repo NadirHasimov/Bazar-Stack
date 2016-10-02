@@ -53,6 +53,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,9 +212,9 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Aquamarine;
-            this.button1.Location = new System.Drawing.Point(50, 288);
+            this.button1.Location = new System.Drawing.Point(39, 288);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 40);
+            this.button1.Size = new System.Drawing.Size(113, 40);
             this.button1.TabIndex = 10;
             this.button1.Text = "Əlavə Et";
             this.button1.UseVisualStyleBackColor = false;
@@ -229,9 +230,9 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Aquamarine;
-            this.button2.Location = new System.Drawing.Point(233, 288);
+            this.button2.Location = new System.Drawing.Point(200, 288);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 40);
+            this.button2.Size = new System.Drawing.Size(120, 40);
             this.button2.TabIndex = 11;
             this.button2.Text = "Sat";
             this.button2.UseVisualStyleBackColor = false;
@@ -247,9 +248,9 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Aquamarine;
-            this.button3.Location = new System.Drawing.Point(50, 349);
+            this.button3.Location = new System.Drawing.Point(39, 349);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 40);
+            this.button3.Size = new System.Drawing.Size(113, 40);
             this.button3.TabIndex = 12;
             this.button3.Text = "Dəyişdir";
             this.button3.UseVisualStyleBackColor = false;
@@ -265,9 +266,9 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Aquamarine;
-            this.button4.Location = new System.Drawing.Point(233, 349);
+            this.button4.Location = new System.Drawing.Point(200, 349);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 40);
+            this.button4.Size = new System.Drawing.Size(120, 40);
             this.button4.TabIndex = 13;
             this.button4.Text = "Sil";
             this.button4.UseVisualStyleBackColor = false;
@@ -372,13 +373,31 @@
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Aquamarine;
-            this.button6.Location = new System.Drawing.Point(149, 410);
+            this.button6.Location = new System.Drawing.Point(39, 410);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 44);
+            this.button6.Size = new System.Drawing.Size(112, 44);
             this.button6.TabIndex = 23;
             this.button6.Text = "Qazanc";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.Gain_Button_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button7.FlatAppearance.BorderSize = 5;
+            this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.Color.Aquamarine;
+            this.button7.Location = new System.Drawing.Point(200, 410);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(121, 44);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "Satış Tarixi";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.btn_ListOfDateForSale);
             // 
             // Form1
             // 
@@ -386,6 +405,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(988, 520);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label8);
@@ -440,6 +460,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
 

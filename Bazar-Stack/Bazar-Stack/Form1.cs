@@ -31,10 +31,8 @@ namespace Bazar_Stack
                 dataGridView1.DataSource = ds.Tables[0];
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,11 +54,9 @@ namespace Bazar_Stack
 
             if (a != 0 && e.RowIndex == -1)
             {
-
             }
             else
             {
-
                 int rowIndex;
                 rowIndex = e.RowIndex;
                 textBox1.DataBindings.Clear();
@@ -143,7 +139,7 @@ namespace Bazar_Stack
                         cmd.Parameters.Add("@ID", SqlDbType.Int).Value = Convert.ToInt32(textBox5.Text);
                         cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Value = textBox1.Text;
                         cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = decimal.Parse(textBox2.Text);
-                        cmd.Parameters.Add("@PriceOfProduct", SqlDbType.Decimal).Value = int.Parse(textBox3.Text);
+                        cmd.Parameters.Add("@PriceOfProduct", SqlDbType.Decimal).Value = decimal.Parse(textBox3.Text);
                         try
                         {
 
@@ -182,7 +178,7 @@ namespace Bazar_Stack
                         cmd.Parameters.Add("@Count", SqlDbType.Int).Value = int.Parse(textBox8.Text);
                         cmd.Parameters.Add("@Date", SqlDbType.Date).Value = DateTime.Now;
                         cmd.Parameters.Add("@Price", SqlDbType.Decimal).Value = decimal.Parse(textBox2.Text);
-                        cmd.Parameters.Add("PriceOfProduct", SqlDbType.Decimal).Value = decimal.Parse(textBox3.Text);
+                        cmd.Parameters.Add("@PriceOfProduct", SqlDbType.Decimal).Value = decimal.Parse(textBox3.Text);
                         try
                         {
                             var affectedRows = cmd.ExecuteNonQuery();
@@ -303,6 +299,11 @@ namespace Bazar_Stack
             public decimal Price { get; set; }
             public decimal PriceOfProduct { get; set; }
             public int CountOfSold { get; set; }
+        }
+        private void btn_ListOfDateForSale(object sender, EventArgs e)
+        {
+            Form frm = new ListOfProductsDueToDate(this);
+            frm.Visible = true;
         }
     }
 }
