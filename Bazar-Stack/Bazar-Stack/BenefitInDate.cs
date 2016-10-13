@@ -8,17 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
 namespace Bazar_Stack
 {
     public partial class BenefitInDate : Form
     {
-        const string constr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BazarStock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        const string constr = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=BazarStack;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public BenefitInDate()
         {
             InitializeComponent();
         }
-
         private void Get_Benefit_InDate(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(constr))
@@ -29,9 +27,7 @@ namespace Bazar_Stack
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@date1", SqlDbType.Date).Value = dateTimePicker1.Text;
                     cmd.Parameters.Add("@date2", SqlDbType.Date).Value = dateTimePicker2.Text;
-
                     SqlDataReader reader = cmd.ExecuteReader();
-
                     List<Benefit> listOfBenefit = new List<Benefit>();
                     while (reader.Read())
                     {
@@ -39,7 +35,7 @@ namespace Bazar_Stack
                     }
                     if (listOfBenefit.Count == 0)
                     {
-                        MessageBox.Show("Seçdiyiniz tarixdə məhsul əlavə olunmayıb !");
+                        MessageBox.Show("Seçdiyiniz tarixdə məhsul əlavə olunmayıb !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -62,7 +58,6 @@ namespace Bazar_Stack
             public decimal PriceOfProduct { get; set; }
             public int CountOfSold { get; set; }
         }
-
         private void Get_All_Benefit(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(constr))
@@ -72,7 +67,6 @@ namespace Bazar_Stack
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     SqlDataReader reader = cmd.ExecuteReader();
-
                     List<Benefit> listOfBenefit = new List<Benefit>();
                     while (reader.Read())
                     {
@@ -89,7 +83,6 @@ namespace Bazar_Stack
                 }
             }
         }
-
         private void Benefit_DueTo_SoldofDate(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(constr))
@@ -100,9 +93,7 @@ namespace Bazar_Stack
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@date1", SqlDbType.Date).Value = dateTimePicker1.Text;
                     cmd.Parameters.Add("@date2", SqlDbType.Date).Value = dateTimePicker2.Text;
-
                     SqlDataReader reader = cmd.ExecuteReader();
-
                     List<Benefit> listOfBenefit = new List<Benefit>();
                     while (reader.Read())
                     {
@@ -114,19 +105,22 @@ namespace Bazar_Stack
                     }
                     else
                     {
-
                         decimal sum = 0;
                         foreach (Benefit i in listOfBenefit)
                         {
                             decimal benefit;
                             benefit = (i.PriceOfProduct - i.Price) * i.CountOfSold;
-                            sum = benefit + sum;
+                            sum = benefit + sum; ;
                         }
                         MessageBox.Show("Seçdiyiniz tarixdə əlavə olunan mallardan qazancıvız " + sum + "-bu qədərdir.");
-
                     }
                 }
             }
+        }
+
+        private void BenefitInDate_Load(object sender, EventArgs e)
+        {
+            MaximizeBox = false;
         }
     }
 }

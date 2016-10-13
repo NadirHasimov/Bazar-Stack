@@ -117,4 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAGBgAAAEAIACICQAAFgAAACgAAAAYAAAAMAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA+8BCAvvAQh77wEJM+r9CevvAQZ77wEK8+8BC0vvAQuT7wELw+8BC8vvAQvL7v0Hy+sBC8vq/
+        Qu77wEHi+8BC0Pq/Qrr6v0Kc+8BCdvvAQkj6v0Ea+8BCAAAAAAD7wEIo+8BBsvvAQu77wEL/+8BC//vA
+        Qv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        Qfz6v0Ls+sBCsPvAQij7wEKI+8BC//vAQf/7wEH/+sBB//vAQf/7wEL/+r9C//vAQv/7wEL/+r9C//vA
+        Qv/6v0H/+8BC//q/Qf/6v0H/+8BC//q/Qf/6v0H/+8BC//q/Qf/6v0H/+8BC//vAQpD7wEKO+8BC//vA
+        Qv/7wEH/+8BC//vAQf/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7v0H/+8BC//q/Qv/7v0H/+8BC//q/
+        Qv/7v0H/+8BC//q/Qv/7v0H/+8BC//vAQpL7wEKO+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        Qv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//rA
+        QZL7wEKO+8BC//vAQf/6v0H8+sBC3vu/Qbz7wEKe+sBCivq/Qnr7wEJs+79CZvrAQmL7v0Ji+8BCZvq/
+        QWz6v0J4+8BBjPu/QaL7v0LA+8BB4vq/Qfz6v0H/+8BC//vAQpL6v0Jw+8BCivrAQkT7wEIO+sBCAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+r9CAPrA
+        QhD6wEJI+8BCkPvAQnD7wEIE+sBCAPvAQgT6wEIW+8BCMPvAQlT7wEJy+8BCivvAQpz7wEGo+8BCsPvA
+        QrT7v0K0+8BCsPu/Qaj7wEKa+8BCiPu/Qm76wEJQ+8BCLPvAQhT7wEIC+8BCAPvAQgT7wEII+8BBavrA
+        Qb76wELq+r9B//vAQf/7wEL/+r9C//vAQv/7wEL/+r9C//vAQv/6v0H/+8BC//q/Qf/6v0H/+8BC//q/
+        Qf/6v0H/+8BC/Pq/Qeb6v0K6+8BCaPu/QQj7wEKA+8BC//vAQv/7wEH/+8BC//vAQf/7wEL/+8BC//vA
+        Qv/7wEL/+8BC//vAQv/7v0H/+8BC//q/Qv/7v0H/+8BC//q/Qv/7v0H/+8BC//q/Qv/7v0H/+8BC//vA
+        QoT7wEKM+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        Qv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQpL7wEKO+8BC//vAQf/7wEH/+sBB//vA
+        Qf/7wEL/+r9C//vAQv/7wEL/+r9C//vAQv/6v0H/+8BC//q/Qf/6v0H/+8BC//q/Qf/6v0H/+8BC//q/
+        Qf/6v0H/+8BC//u/QpL7wEGQ+8BC//vAQv/7wEL/+8BC//vAQvz7wEHu+8BC3vu/QdT7v0HK+8BCxvvA
+        QcT6v0HG+79CxvvAQcr7wELU+8BC4Pu/Qe76v0H8+8BC//rAQv/7wEL/+8BC//vAQpL7wEKQ+8BC4PvA
+        Qqj6v0Fy+8BCRvvAQib7wEIY+r9BEPq/Qgr7wEIG+8BCBPu/QgT7wEIE+8BCBPvAQgb7wEIK+8BCEPvA
+        Qhj7wEIo+8BBSvu/QXb7wEKs+8BC5PvAQpD6v0Ii+r9CDgAAAAAAAAAAAAAAAAAAAAD7wEIM+79BJPrA
+        Qjj7wEJE+8BCSPu/QUr7wEJK+8BBSPvAQkL7wEI0+8BBIvvAQgwAAAAAAAAAAAAAAAAAAAAA+8BCEPvA
+        QiQAAAAA+r9CHPq/Ql77wEKa+sBCyPvAQuz6wEH/+8BC//vAQv/6wEH/+8BC//vAQv/7wEL/+8BC//rA
+        Qv/7wEL/+8BC//rAQv/7wELq+79CxPrAQpb6wEJY+8BCGAAAAAD7wEJQ+8BC6Pu/Qv/7wEL/+79C//vA
+        Qv/6wEL/+8BC//vAQv/6wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        Qv/7wEL/+79C5Pu/QVL7wEKM+sBB//vAQf/7wEH/+8BC//vAQf/7wEL/+sBB//vAQv/7wEL/+sBB//vA
+        Qv/6v0H/+r9C//q/Qf/6v0H/+r9C//q/Qf/6v0H/+r9C//q/Qf/6v0H/+r9C//vAQpL7wEKO+8BC//q/
+        Qf/7wEH/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEH/+8BC//vAQf/7wEH/+8BC//vA
+        Qf/7wEH/+8BC//vAQf/7wEH/+8BC//u/QZL7wEKO+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+79C//vA
+        Qv/7wEL/+79C//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        QpL7wEKO+8BC//vAQf/7wEH/+sBB//vAQf/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/6wEH/+sBC//q/
+        Qf/6wEH/+sBC//q/Qf/6wEH/+sBC//q/Qf/6wEH/+sBC//q/QpL7wEKM+8BC//vAQv/7wEH/+8BC//vA
+        Qv/7wEH/+8BC//vAQv/7wEH/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        Qv/7wEL/+8BC//rAQor7wEIi+8BCpPvAQuj7wEL8+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vA
+        Qv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQv/7wEL/+8BC//vAQvz7wELq+79CrPq/QSYAAAAA+8BBAPvA
+        QRT7v0FA+8BCbPvAQpD7v0Kw+r9ByPvAQtr6wELo+sBC7vvAQvD6v0Ly+8BC8PrAQur6wELc+8BCyPvA
+        QrL7wEKU+8BBcPvAQkb7wEIa+8BCAAAAAAD4AB8AgAABAAAAAAAAAAAAAAAAAAD/AAC///0A/gB/AMAA
+        AwAAAAAAAAAAAAAAAAAAAAAAH//4AP///wDgAAcAgAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAABAPgA
+        HwA=
+</value>
+  </data>
 </root>

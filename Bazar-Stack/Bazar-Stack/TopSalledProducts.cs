@@ -11,17 +11,17 @@ using System.Data.SqlClient;
 
 namespace Bazar_Stack
 {
-    public partial class TopSalledProducts : Form
+    public partial class TopSoldProducts : Form
     {
-        const string constr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BazarStock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        const string constr = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=BazarStack;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private Form1 form1;
 
-        public TopSalledProducts()
+        public TopSoldProducts()
         {
             InitializeComponent();
         }
 
-        public TopSalledProducts(Form1 form1)
+        public TopSoldProducts(Form1 form1)
         {
             this.form1 = form1;
         }
@@ -31,6 +31,7 @@ namespace Bazar_Stack
             dataGridView1.DataBindings.Clear();
             AddDataGrid1();
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            MaximizeBox = false;
         }
         public void AddDataGrid1()
         {
@@ -54,6 +55,11 @@ namespace Bazar_Stack
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
     }
 }

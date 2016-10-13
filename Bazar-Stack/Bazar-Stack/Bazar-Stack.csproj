@@ -12,6 +12,28 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <TargetCulture>az-Latn</TargetCulture>
+    <ProductName>Bazar Stack</ProductName>
+    <PublisherName>Nadir Haşımov</PublisherName>
+    <SuiteName>Desktop application</SuiteName>
+    <MinimumRequiredVersion>1.1.0.1</MinimumRequiredVersion>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.1.0.1</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +54,35 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Bazar_Stack.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5E3457207776E81DA8A71072C4A8B5C4DC3B5FBE</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Bazar-Stack_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccessModifiersOne">
+      <HintPath>..\..\..\..\..\OneDrive\Sənədlər\Visual Studio 2015\Projects\KudvemCat\AccessModifiersOne\bin\Debug\AccessModifiersOne.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,12 +101,6 @@
     </Compile>
     <Compile Include="BenefitInDate.Designer.cs">
       <DependentUpon>BenefitInDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Benefit_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Benefit_Form.Designer.cs">
-      <DependentUpon>Benefit_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -78,11 +122,92 @@
     <Compile Include="TopSalledProducts.Designer.cs">
       <DependentUpon>TopSalledProducts.cs</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\AccessModifiersOne.AccessModifiersI.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.DateOfSaledProductsDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.DateOfSaledProductsRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.DateOfSaledProductsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.DateOfSaledProductsRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.EmployeesDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.EmployeesRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.EmployeesRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.EmployeesRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.ProductsDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.ProductsRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.ProductsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.ProductsRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspBenefitsDueToDayDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspBenefitsDueToDayRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspBenefitsDueToDayRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspBenefitsDueToDayRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCheckProductNameDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCheckProductNameRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCheckProductNameRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCheckProductNameRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCountOfProductDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCountOfProductRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCountOfProductRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspCountOfProductRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspFindProductDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspFindProductRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspFindProductRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspFindProductRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetAllProductsDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetAllProductsRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetAllProductsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetAllProductsRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitInDateDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitInDateRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitInDateRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitInDateRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetBenefitRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfSoldProductsDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfSoldProductsRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfSoldProductsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfSoldProductsRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfUnSoldProductsDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfUnSoldProductsRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfUnSoldProductsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetCountOfUnSoldProductsRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetListOfProductsInDateDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetListOfProductsInDateRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetListOfProductsInDateRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetListOfProductsInDateRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetTopSelledProductsDataTable.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetTopSelledProductsRow.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetTopSelledProductsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\BazarStackDataSet.uspGetTopSelledProductsRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.DateOfSaledProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.EmployeesTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.ProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.QueriesTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspBenefitsDueToDayTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspCheckProductNameTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspCountOfProductTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspFindProductTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetAllProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetBenefitInDateTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetBenefitTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetCountOfSoldProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetCountOfUnSoldProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetListOfProductsInDateTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.BazarStackDataSetTableAdapters.uspGetTopSelledProductsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Bazar_Stack.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\BenefitInDate.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\ListOfProductsDueToDate.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\TopSalledProducts.datasource" />
+    <None Include="Resources\1475946842_system-search.ico" />
+    <None Include="Resources\1475946573_icon-111-search.ico" />
     <EmbeddedResource Include="BenefitInDate.resx">
       <DependentUpon>BenefitInDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Benefit_Form.resx">
-      <DependentUpon>Benefit_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -98,10 +223,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TopSalledProducts.resx">
       <DependentUpon>TopSalledProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Bazar-Stack_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,6 +242,73 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.10.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 R2 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.11.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Bazar-Stack.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
